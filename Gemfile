@@ -9,7 +9,10 @@ gem "rails", "~> 7.0.3"
 gem "rack-cors"
 
 # Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
+# gem "mysql2", "~> 0.5"
+
+# Use postgres as the database for Active Record
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
