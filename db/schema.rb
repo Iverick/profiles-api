@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_102714) do
     t.datetime "updated_at", null: false
     t.integer "profiles_count"
     t.string "username"
-    t.boolean "is_admin"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
