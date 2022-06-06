@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_095257) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_102714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_095257) do
     t.datetime "updated_at", null: false
     t.integer "profiles_count"
     t.string "username"
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
