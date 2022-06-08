@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+### `rake secret`
+
+Generates jwt_secret_key for devise.
+
+### `EDITOR=nano rails credentials:edit`
+Run this to add generated key to env as `devise: secret_key: <key>`
+
