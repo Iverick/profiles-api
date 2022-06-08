@@ -1,15 +1,15 @@
-class Api::V01::UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.all.order(:created_at)
     render json: @users
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user, include: :profiles
   end
 
   # POST /users
