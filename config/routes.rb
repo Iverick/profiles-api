@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get '/member-data', to: 'members#show'
+  devise_for :users, defaults: { format: :json }, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   namespace :api do
     namespace :v1 do
@@ -13,13 +17,6 @@ Rails.application.routes.draw do
       get 'dashboard/index'
       resources :users, :as => 'user'
       resources :profiles
-      # /api/v1/auth/<route> URLs
-      namespace :auth do
-        devise_for :users, controllers: {
-          sessions: 'users/sessions',
-          registrations: 'users/registrations'
-        }
-      end
     end
   end
 end

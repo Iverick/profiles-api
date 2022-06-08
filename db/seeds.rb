@@ -23,10 +23,17 @@ users.push(admin_user)
   users.push(user)
 
   3.times do |y|
-    profile = user.profiles.new(name: "test #{y + 1}", gender: 1, birthday: "29.02.2020", city: "Delhi", user_id: user.id)
+    profile = user.profiles.new(name: "Test Name #{y + 1}", gender: rand(2), birthday: "29.02.2020", city: "Delhi", user_id: user.id)
     profiles.push(profile)
   end
 end
 
+admin_profile = admin_user.profiles.new(name: "Test Esco", gender: rand(2), birthday: "01.01.2001", city: "Tel Aviv", user_id: admin_user.id)
+profiles << admin_profile
+
 User.import(users)
 Profile.import(profiles)
+ 
+users.each do |user|
+  User.reset_counters(user.id, :profiles_count)
+end
