@@ -3,7 +3,7 @@ class Api::V1::DashboardController < ApplicationController
     @response = {}
     @response[:users_count] = User.count
     @response[:profiles_count] = Profile.count
-    @response[:profiles_older_18] = Profile.profiles_older_18 
+    @response[:adult_profiles_count] = Profile.adults.count 
 
     render json: @response
   end
