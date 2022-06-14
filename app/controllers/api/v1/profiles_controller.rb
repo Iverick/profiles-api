@@ -16,7 +16,7 @@ class Api::V1::ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
-      render json: @profile, status: :created, location: api_v01_profile_path(@profile)
+      render json: @profile, status: :created, location: api_v1_profile_path(@profile)
     else
       render json: @profile.errors, status: :unprocessable_entity
     end
