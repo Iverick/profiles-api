@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all.order(:created_at)
+    @users = User.all.order(:updated_at)
     render json: @users
   end
 

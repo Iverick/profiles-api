@@ -4,7 +4,7 @@ class Api::V1::ProfilesController < ApplicationController
   # GET /profiles
   def index
     @profiles = Profile.all
-    render json: @profiles
+    render json: @profiles, :except => [:created_at, :updated_at]
   end
 
   # GET /profiles/1
