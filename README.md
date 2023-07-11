@@ -1,32 +1,40 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Server API of the Profiles app. See a client part [here](https://github.com/Iverick/profiles-frontend.git).
 
-Things you may want to cover:
+## Run this app
 
-* Ruby version
+The following dependencies must be installed
 
-* System dependencies
+  - `ruby==3.1.2`
+  - `psql==14`
+  - `git`
 
-* Configuration
+Clone this repo on your local machine
 
-* Database creation
+`git clone https://github.com/Iverick/profiles-api.git`
 
-* Database initialization
+Generate secret key
 
-* How to run the test suite
+`rake secret`
 
-* Services (job queues, cache servers, search engines, etc.)
+Grab generated value and open `credentials` file
 
-* Deployment instructions
+`EDITOR=nano rails credentials:edit`
 
-* ...
+Insert key at the bottom of the file as following
 
-### `rake secret`
+```
+devise:
+  jwt_secret_key: <put_generated_secret_key_here>
+```
 
-Generates jwt_secret_key for devise.
+Create `.env` file inside the root directory and populate it with the corresponding variables from the `.env.example` file.
 
-### `EDITOR=nano rails credentials:edit`
-Run this to add generated key to env as `devise: secret_key: <key>`
+Setup a database
 
+`rails db:setup`
+
+Start development server
+
+`rails s`
